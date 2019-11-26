@@ -1,0 +1,91 @@
+{
+  "name": "node-lib-template",
+  "version": "0.0.1",
+  "description": "node library template",
+  "keywords": [],
+  "homepage": "https://github.com/Himenon/node-lib-template#readme",
+  "bugs": {
+    "url": "https://github.com/Himenon/node-lib-template/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Himenon/node-lib-template.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Himenon",
+    "email": "k.himeno314@gmail.com",
+    "url": "https://github.com/Himenon"
+  },
+  "files": [
+    "lib",
+    "package.json"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "run:index": "ts-node -P ./tsconfig.json ./src/index.ts",
+    "build": "yarn clean && tsc -p ./tsconfig.build.json",
+    "ci:notify:release": "ts-node ./scripts/notify.ts",
+    "clean": "rimraf ./lib",
+    "cli": "node ./lib/cli.js",
+    "commit": "npx git-cz",
+    "depcruise": "depcruise --validate .dependency-cruiser.js src",
+    "depcruise:html": "depcruise --validate --output-type err-html -f dependency-report.html .dependency-cruiser.js src",
+    "cruiser": "dependency-cruiser --validate .dependency-cruiser.json src",
+    "develop": "yarn run build --watch",
+    "format": "yarn lint --fix && prettier --write \"**/*.{ts,tsx,js,jsx,json,yml,yaml,html,md}\"",
+    "lint": "eslint -c ./.eslintrc.js 'src/**/*.{ts,tsx}'",
+    "lint:fix": "yarn lint --fix",
+    "server": "node ./lib/server.js",
+    "start": "yarn develop",
+    "test": "yarn cruiser && yarn test:jest",
+    "test:ci": "yarn test && codecov",
+    "test:jest": "jest -c ./jest.config.json",
+    "test:watch": "yarn test:jest --watch",
+    "version_up": "lerna version --yes"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "lerna": "^3.18.4",
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "@types/jest": "^24.0.23",
+    "@types/node": "^12.12.14",
+    "@typescript-eslint/eslint-plugin": "^2.9.0",
+    "@typescript-eslint/parser": "^2.9.0",
+    "codecov": "^3.6.1",
+    "dependency-cruiser": "^5.3.2",
+    "eslint": "^6.7.1",
+    "generate-changelog": "^1.8.0",
+    "eslint": "^6.6.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "husky": "^3.1.0",
+    "jest": "^24.9.0",
+    "jest-cli": "^24.9.0",
+    "lint-staged": "^9.4.3",
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.0",
+    "sort-package-json": "^1.24.0",
+    "ts-jest": "^24.2.0",
+    "ts-node": "^8.5.2",
+    "typescript": "^3.7.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}

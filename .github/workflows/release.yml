@@ -48,9 +48,8 @@ jobs:
         with:
           node-version: "12.x"
           registry-url: "https://registry.npmjs.org"
-      - run: |
-          yarn install --frozen-lockfile
-          yarn build
-          yarn --cwd ./lib release:npm:registry
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
+      - run: yarn --cwd ./lib release:npm:registry
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

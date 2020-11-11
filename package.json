@@ -27,7 +27,11 @@
     "package.json"
   ],
   "scripts": {
-    "build": "run-s clean tsc:build",
+    "build": "run-s clean && run-p build:types build:cjs build:esm && run-s build:cherry-pick",
+    "build:cherry-pick": "cherry-pick --cwd ./lib --input-dir ../src --types-dir ./$types --cjs-dir ./$cjs --esm-dir ./$esm",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:types": "yarn tsc -p tsconfig.esm.json -d --emitDeclarationOnly --outDir ./lib/\\$types",
     "clean": "rimraf ./lib",
     "format:code": "prettier \"**/*.{js,jsx,ts,tsx,json,yml,yaml,md,html}\" --write",
     "format:yarn:lock": "yarn-deduplicate yarn.lock --strategy highest",
@@ -35,8 +39,7 @@
     "lerna:version:up": "lerna version --yes",
     "test": "run-s test:depcruise test:jest",
     "test:depcruise": "depcruise --validate .dependency-cruiser.js src",
-    "test:jest": "jest -c ./jest.config.js",
-    "tsc:build": "tsc -p ./tsconfig.build.json"
+    "test:jest": "jest -c ./jest.config.js"
   },
   "husky": {
     "hooks": {

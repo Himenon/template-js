@@ -20,6 +20,10 @@
 
 - [Proxy Directory](https://himenon.github.io/docs/javascript/proxy-directory-design-pattern/)
 
+## Release
+
+- Automatic version updates are performed when merged into the `default` branch.
+
 ## LICENCE
 
 [@himenon-node-lib-template](https://github.com/Himenon/node-lib-template)・MIT

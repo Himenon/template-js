@@ -17,8 +17,10 @@
     "email": "k.himeno314@gmail.com",
     "url": "https://github.com/Himenon"
   },
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "sideEffects": false,
+  "main": "lib/$cjs/index.js",
+  "module": "lib/$esm/index.js",
+  "types": "lib/$types/index.d.ts",
   "directories": {
     "lib": "lib"
   },
@@ -27,19 +29,16 @@
     "package.json"
   ],
   "scripts": {
-    "build": "run-s clean && run-p build:types build:cjs build:esm && run-s build:cherry-pick",
-    "build:cherry-pick": "cherry-pick --cwd ./lib --input-dir ../src --types-dir ./$types --cjs-dir ./$cjs --esm-dir ./$esm",
-    "build:cjs": "tsc -p tsconfig.cjs.json",
-    "build:esm": "tsc -p tsconfig.esm.json",
-    "build:types": "yarn tsc -p tsconfig.esm.json -d --emitDeclarationOnly --outDir ./lib/\\$types",
-    "clean": "rimraf ./lib",
+    "build": "yarn ts ./scripts/build.ts",
+    "clean": "yarn ts ./scripts/clean.ts",
     "format:code": "prettier \"**/*.{js,jsx,ts,tsx,json,yml,yaml,md,html}\" --write",
     "format:yarn:lock": "yarn-deduplicate yarn.lock --strategy highest",
     "postinstall": "run-s format:yarn:lock",
     "lerna:version:up": "lerna version --yes",
     "test": "run-s test:depcruise test:jest",
     "test:depcruise": "depcruise --validate .dependency-cruiser.js src",
-    "test:jest": "jest -c ./jest.config.js"
+    "test:jest": "jest -c ./jest.config.js",
+    "ts": "ts-node -P tsconfig.build.json"
   },
   "husky": {
     "hooks": {
@@ -58,6 +57,7 @@
     "@commitlint/config-conventional": "11.0.0",
     "@types/jest": "26.0.15",
     "@types/node": "14.14.7",
+    "@types/rimraf": "3.0.0",
     "@typescript-eslint/eslint-plugin": "4.7.0",
     "@typescript-eslint/parser": "4.7.0",
     "cherry-pick": "0.5.0",
@@ -65,6 +65,7 @@
     "eslint": "7.13.0",
     "eslint-config-prettier": "6.14.0",
     "eslint-plugin-import": "2.22.1",
+    "execa": "4.1.0",
     "generate-changelog": "1.8.0",
     "husky": "4.3.0",
     "jest": "26.6.3",

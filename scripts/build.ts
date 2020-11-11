@@ -1,5 +1,6 @@
 import "./clean";
 import { shell } from "./tools/shell";
+import { copyPackageSet } from "./tools/copyPackageSet";
 
 const main = async () => {
   await Promise.all([
@@ -8,6 +9,7 @@ const main = async () => {
     shell("yarn tsc -p tsconfig.esm.json"),
   ]);
   await shell("cherry-pick --cwd ./lib --input-dir ../src --types-dir ./$types --cjs-dir ./$cjs --esm-dir ./$esm");
+  await copyPackageSet();
 };
 
 main().catch(error => {

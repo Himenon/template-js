@@ -1,7 +1,9 @@
 {
-  "extends": "./tsconfig",
+  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "esnext",
+    "outDir": "lib/$esm",
+    "rootDir": "src",
     "declaration": false
   },
   "include": ["src"],

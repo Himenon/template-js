@@ -10,7 +10,6 @@ const pkg = require("../../package.json");
 export const copyPackageSet = async (): Promise<void> => {
   const libDir = "lib";
   const publishPackageJson = path.join(libDir, "package.json");
-  pkg.scripts = undefined;
   pkg.private = undefined;
   pkg.main = path.relative(libDir, pkg.main);
   pkg.module = path.relative(libDir, pkg.module);

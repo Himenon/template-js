@@ -1,0 +1,19 @@
+name: Version Up
+
+on:
+  push:
+    branches: [default]
+
+jobs:
+  auto-version-up:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+      - name: Release to GitHub Pages
+        run: |
+          yarn install --frozen-lockfile
+          yarn lerna:version:up

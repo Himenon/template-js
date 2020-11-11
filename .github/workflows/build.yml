@@ -1,6 +1,7 @@
-name: Test & Build
+name: Build
 
-on: [pull_request]
+on:
+  pull_request:
 
 jobs:
   build:
@@ -11,13 +12,15 @@ jobs:
         node-version: [12.x]
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+        with:
+          ref: master
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: yarn install, build, and test
+      - name: Test & Build
         run: |
           yarn install --frozen-lockfile
           yarn test

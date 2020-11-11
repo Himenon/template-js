@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.0.1",
   "command": {
     "version": {
       "conventionalCommits": true,
@@ -9,7 +9,7 @@
   },
   "publish": {
     "access": "public",
-    "allowBranch": "master",
+    "allowBranch": "default",
     "ignoreChanges": ["CHANGELOG.md"]
   },
   "stream": true,

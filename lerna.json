@@ -1,5 +1,5 @@
 {
-  "version": "0.0.3",
+  "version": "independent",
   "command": {
     "version": {
       "conventionalCommits": true,
@@ -10,14 +10,10 @@
   "publish": {
     "access": "public",
     "allowBranch": "default",
-    "ignoreChanges": [
-      "CHANGELOG.md"
-    ]
+    "ignoreChanges": ["CHANGELOG.md"]
   },
   "stream": true,
   "concurrency": 1,
   "npmClient": "yarn",
-  "packages": [
-    "."
-  ]
+  "packages": ["."]
 }

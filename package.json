@@ -3,7 +3,11 @@
   "version": "0.0.2",
   "private": true,
   "description": "node library template",
-  "keywords": [],
+  "keywords": [
+    "template",
+    "proxy directory",
+    "typescript"
+  ],
   "homepage": "https://github.com/Himenon/node-lib-template#readme",
   "bugs": {
     "url": "https://github.com/Himenon/node-lib-template/issues"

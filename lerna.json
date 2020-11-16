@@ -9,7 +9,7 @@
   },
   "publish": {
     "access": "public",
-    "allowBranch": "default",
+    "allowBranch": "main",
     "ignoreChanges": ["CHANGELOG.md"]
   },
   "stream": true,

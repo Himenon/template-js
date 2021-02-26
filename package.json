@@ -34,6 +34,7 @@
     "package.json"
   ],
   "scripts": {
+    "prepare": "husky install",
     "build": "yarn ts ./scripts/build.ts",
     "clean": "yarn ts ./scripts/clean.ts",
     "format:code": "prettier \"**/*.{js,jsx,ts,tsx,json,yml,yaml,md,html}\" --write",

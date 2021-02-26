@@ -46,10 +46,6 @@
     "test:jest": "jest -c ./jest.config.js",
     "ts": "ts-node -P tsconfig.build.json"
   },
-  "hooks": {
-    "pre-commit": "lint-staged",
-    "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-  },
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog"

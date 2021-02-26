@@ -1,4 +1,4 @@
-# @himenon/node-lib-template
+# @Himenon/template-js
 
 ## Usage
 
@@ -26,4 +26,4 @@
 
 ## LICENCE
 
-[@himenon-node-lib-template](https://github.com/Himenon/node-lib-template)・MIT
+[@Himenon/template-js](https://github.com/Himenon/template-js)・MIT

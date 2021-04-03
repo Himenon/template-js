@@ -1,3 +1,6 @@
+export * as Sub from "./sub";
+export * as Hello from "./hello/world";
+
 export const hello = (name: string): string => {
   const params = {
     hoge: 1,

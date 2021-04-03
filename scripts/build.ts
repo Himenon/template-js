@@ -1,6 +1,10 @@
 import "./clean";
 import { shell } from "./tools/shell";
-import { copyPackageSet } from "./tools/copyPackageSet";
+import { generateExportsField } from "./tools/dualPackageSupport";
+import * as fs from "fs";
+import { EOL } from "os";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const pkg = require("../package.json");
 
 const main = async () => {
   await Promise.all([
@@ -8,8 +12,19 @@ const main = async () => {
     shell("yarn tsc -p tsconfig.cjs.json"),
     shell("yarn tsc -p tsconfig.esm.json"),
   ]);
-  await shell("cherry-pick --cwd ./lib --input-dir ../src --types-dir ./\\$types --cjs-dir ./\\$cjs --esm-dir ./\\$esm");
-  await copyPackageSet();
+
+  const exportsFiled = generateExportsField("./src", {
+    directory: {
+      node: "./lib/$cjs",
+      require: "./lib/$cjs",
+      import: "./lib/$esm",
+      default: "./lib/$cjs",
+    },
+  });
+
+  pkg.exports = exportsFiled;
+
+  fs.writeFileSync("package.json", JSON.stringify(pkg, null, 2) + EOL, { encoding: "utf-8" });
 };
 
 main().catch(error => {

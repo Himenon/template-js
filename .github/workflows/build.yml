@@ -5,11 +5,12 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [12.x, 14.x]
+        os: [windows-latest, ubuntu-latest]
 
     steps:
       - uses: actions/checkout@v2
@@ -23,7 +24,7 @@ jobs:
       - name: Test & Build
         run: |
           yarn install --frozen-lockfile
-          yarn test
           yarn build
+          yarn test
         env:
           CI: true

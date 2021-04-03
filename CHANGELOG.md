@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.1.0"></a>
+
+# 0.1.0 (2021-04-03)
+
+### Features
+
+- support dual package ([#25](https://github.com/Himenon/template-js/issues/25)) ([894bf44](https://github.com/Himenon/template-js/commit/894bf44))
+
 <a name="0.0.11"></a>
 
 ## 0.0.11 (2021-02-26)

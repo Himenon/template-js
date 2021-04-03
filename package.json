@@ -1,7 +1,6 @@
 {
   "name": "@himenon/template-js",
   "version": "0.0.11",
-  "private": true,
   "description": "node library template",
   "keywords": [
     "template",
@@ -23,15 +22,30 @@
     "url": "https://github.com/Himenon"
   },
   "sideEffects": false,
-  "main": "lib/$cjs/index.js",
-  "module": "lib/$esm/index.js",
-  "types": "lib/$types/index.d.ts",
+  "exports": {
+    ".": {
+      "node": "./lib/$cjs/index.js",
+      "require": "./lib/$cjs/index.js",
+      "import": "./lib/$esm/index.js",
+      "default": "./lib/$cjs/index.js"
+    },
+    "./sub": {
+      "node": "./lib/$cjs/sub.js",
+      "require": "./lib/$cjs/sub.js",
+      "import": "./lib/$esm/sub.js",
+      "default": "./lib/$cjs/sub.js"
+    }
+  },
+  "main": "./lib/$cjs/index.js",
+  "module": "./lib/$esm/index.js",
+  "types": "./lib/$types/index.d.ts",
   "directories": {
     "lib": "lib"
   },
   "files": [
     "lib",
-    "package.json"
+    "package.json",
+    "README.md"
   ],
   "scripts": {
     "prepare": "husky install",
@@ -64,7 +78,6 @@
     "@types/rimraf": "3.0.0",
     "@typescript-eslint/eslint-plugin": "4.15.2",
     "@typescript-eslint/parser": "4.15.2",
-    "cherry-pick": "0.5.0",
     "conventional-changelog-angular-all": "1.7.0",
     "cpy": "8.1.1",
     "dependency-cruiser": "9.23.2",

@@ -68,10 +68,6 @@
       "path": "cz-conventional-changelog"
     }
   },
-  "resolutions": {
-    "kind-of": "6.0.3",
-    "node-fetch": "2.6.1"
-  },
   "devDependencies": {
     "@commitlint/cli": "12.1.1",
     "@commitlint/config-conventional": "12.1.1",

@@ -64,7 +64,7 @@
     "ts": "ts-node -P tsconfig.build.json"
   },
   "simple-git-hooks": {
-    "pre-commit": "lint-staged"
+    "pre-commit": "pnpm lint-staged"
   },
   "devDependencies": {
     "@commitlint/cli": "16.2.3",

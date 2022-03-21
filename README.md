@@ -7,7 +7,6 @@
 | `build`                   | typescript build and create proxy directory |
 | `clean`                   | clean up                                    |
 | `format:code`             | prettier                                    |
-| `format:yarn:lock`        | yarn.lock deduplicate                       |
 | `lerna:version:up`        | lerna version up                            |
 | `test`                    | execute test:depcruise, test:jest           |
 | `test:depcruise`          | dependency-cruiser's test                   |

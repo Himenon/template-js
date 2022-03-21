@@ -54,22 +54,17 @@
     "lerna:version:up": "lerna version --yes",
     "release:github:registry": "pnpm publish --registry https://npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}",
     "release:npm:registry": "pnpm publish",
-    "test": "run-s depcruise:validate jest eslint:validate prettier:validate",
+    "test": "run-p test:*",
     "prettier:format": "prettier \"**/*.{js,jsx,ts,tsx,json,yml,yaml,md,html}\" --write ./src",
-    "prettier:validate": "prettier --check \"**/*.{js,jsx,ts,tsx,json,yml,yaml,md,html}\"",
+    "test:prettier:validate": "prettier --check \"**/*.{js,jsx,ts,tsx,json,yml,yaml,md,html}\"",
     "eslint:format": "eslint \"**/*.{ts,tsx}\" --fix",
-    "eslint:validate": "eslint \"**/*.{ts,tsx}\"",
-    "depcruise:validate": "depcruise --validate .dependency-cruiser.js src",
-    "jest": "jest -c ./jest.config.js",
+    "test:eslint:validate": "eslint \"**/*.{ts,tsx}\"",
+    "test:depcruise:validate": "depcruise --validate .dependency-cruiser.js src",
+    "test:jest": "jest -c ./jest.config.js",
     "ts": "ts-node -P tsconfig.build.json"
   },
   "simple-git-hooks": {
     "pre-commit": "lint-staged"
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
   },
   "devDependencies": {
     "@commitlint/cli": "16.2.3",

@@ -15,7 +15,7 @@ jobs:
           git config --global core.eol lf
           git config --global user.email "actions@gihub.com"
           git config --global user.name "gh-actions"
-      - uses: actions/checkout@3
+      - uses: actions/checkout@v3
         with:
           ref: main
       - uses: pnpm/action-setup@v2.1.0

@@ -22,20 +22,6 @@
     "url": "https://github.com/Himenon"
   },
   "sideEffects": false,
-  "exports": {
-    ".": {
-      "node": "./lib/$cjs/index.js",
-      "require": "./lib/$cjs/index.js",
-      "import": "./lib/$esm/index.js",
-      "default": "./lib/$cjs/index.js"
-    },
-    "./sub": {
-      "node": "./lib/$cjs/sub.js",
-      "require": "./lib/$cjs/sub.js",
-      "import": "./lib/$esm/sub.js",
-      "default": "./lib/$cjs/sub.js"
-    }
-  },
   "main": "./lib/$cjs/index.js",
   "module": "./lib/$esm/index.js",
   "types": "./lib/$types/index.d.ts",
@@ -74,8 +60,9 @@
     "@types/rimraf": "3.0.2",
     "@typescript-eslint/eslint-plugin": "5.15.0",
     "@typescript-eslint/parser": "5.15.0",
+    "cherry-pick": "^0.5.0",
     "conventional-changelog-angular-all": "1.7.0",
-    "cpy": "9.0.1",
+    "cpy": "8.1.2",
     "cz-conventional-changelog": "^3.3.0",
     "dependency-cruiser": "11.4.1",
     "eslint": "8.11.0",

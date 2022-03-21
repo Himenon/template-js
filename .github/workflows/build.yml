@@ -13,6 +13,12 @@ jobs:
         os: [windows-latest, ubuntu-latest]
 
     steps:
+      - name: Setup Git Config
+        run: |
+          git config --global core.autocrlf false
+          git config --global core.eol lf
+          git config --global user.email "actions@gihub.com"
+          git config --global user.name "gh-actions"
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2.1.0
         with:

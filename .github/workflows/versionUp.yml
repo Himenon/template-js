@@ -9,6 +9,12 @@ jobs:
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     steps:
+      - name: Setup Git Config
+        run: |
+          git config --global core.autocrlf false
+          git config --global core.eol lf
+          git config --global user.email "actions@gihub.com"
+          git config --global user.name "gh-actions"
       - uses: actions/checkout@3
         with:
           ref: main
@@ -22,6 +28,4 @@ jobs:
       - run: pnpm i --frozen-lockfile
       - name: Auto version update
         run: |
-          git config --global user.email "actions@gihub.com"
-          git config --global user.name "gh-actions"
           pnpm lerna:version:up

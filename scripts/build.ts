@@ -1,10 +1,6 @@
 import "./clean";
 import { shell } from "./tools/shell";
 import { copyPackageSet } from "./tools/copyPackageSet";
-import * as fs from "fs";
-import { EOL } from "os";
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const pkg = require("../package.json");
 
 const main = async () => {
   await Promise.all([

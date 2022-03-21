@@ -20,7 +20,7 @@ jobs:
           registry-url: https://npm.pkg.github.com
           scope: "@Himenon"
           cache: "pnpm"
-      - run: pnpm install
+      - run: pnpm i --frozen-lockfile
       - run: |
           pnpm build
 

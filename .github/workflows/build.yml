@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: "16"
           cache: "pnpm"
-      - run: pnpm install
+      - run: pnpm i --frozen-lockfile
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:

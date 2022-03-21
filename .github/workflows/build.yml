@@ -18,6 +18,7 @@ jobs:
         with:
           node-version: "16"
           cache: "pnpm"
+      - run: pnpm install
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -25,7 +26,6 @@ jobs:
 
       - name: Test & Build
         run: |
-          pnpm install --frozen-lockfile
           pnpm build
           pnpm test
         env:

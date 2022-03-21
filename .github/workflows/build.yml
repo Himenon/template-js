@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [16.x]
         os: [windows-latest, ubuntu-latest]
 
     steps:
@@ -23,8 +23,8 @@ jobs:
 
       - name: Test & Build
         run: |
-          yarn install --frozen-lockfile
-          yarn build
-          yarn test
+          pnpm install --frozen-lockfile
+          pnpm build
+          pnpm test
         env:
           CI: true

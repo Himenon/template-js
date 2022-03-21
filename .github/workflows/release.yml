@@ -17,8 +17,8 @@ jobs:
           registry-url: https://npm.pkg.github.com
           scope: "@Himenon"
       - run: |
-          yarn install --frozen-lockfile
-          yarn build
+          pnpm install --frozen-lockfile
+          pnpm build
 
   release-github-registry:
     runs-on: ubuntu-latest
@@ -32,9 +32,9 @@ jobs:
           registry-url: https://npm.pkg.github.com
           scope: "@Himenon"
       - run: |
-          yarn install --frozen-lockfile
-          yarn build
-          yarn --cwd ./lib release:github:registry
+          pnpm install --frozen-lockfile
+          pnpm build
+          pnpm --cwd ./lib release:github:registry
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -48,8 +48,8 @@ jobs:
         with:
           node-version: "12.x"
           registry-url: "https://registry.npmjs.org"
-      - run: yarn install --frozen-lockfile
-      - run: yarn build
-      - run: yarn --cwd ./lib release:npm:registry
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - run: pnpm --cwd ./lib release:npm:registry
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

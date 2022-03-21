@@ -8,14 +8,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           ref: main
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
-          node-version: "14.x"
+          node-version: "16"
           registry-url: https://npm.pkg.github.com
           scope: "@Himenon"
+          cache: "pnpm"
       - run: |
           pnpm install --frozen-lockfile
           pnpm build
@@ -23,14 +24,15 @@ jobs:
   release-github-registry:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           ref: main
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
-          node-version: "14.x"
+          node-version: "16"
           registry-url: https://npm.pkg.github.com
           scope: "@Himenon"
+          cache: "pnpm"
       - run: |
           pnpm install --frozen-lockfile
           pnpm build
@@ -44,10 +46,11 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: main
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
-          node-version: "12.x"
+          node-version: "16.x"
           registry-url: "https://registry.npmjs.org"
+          cache: "pnpm"
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
       - run: pnpm --cwd ./lib release:npm:registry

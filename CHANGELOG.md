@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.0.3"></a>
+
+## 1.0.3 (2022-04-22)
+
+### Bug Fixes
+
+- action task ([#33](https://github.com/Himenon/template-js/issues/33)) ([304d557](https://github.com/Himenon/template-js/commit/304d557))
+
 <a name="1.0.2"></a>
 
 ## 1.0.2 (2022-04-22)

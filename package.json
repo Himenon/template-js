@@ -1,6 +1,7 @@
 {
   "name": "@himenon/template-js",
   "version": "1.0.4",
+  "type": "module",
   "description": "node library template",
   "keywords": [
     "template",
@@ -34,7 +35,7 @@
     "README.md"
   ],
   "scripts": {
-    "build": "pnpm ts ./scripts/build.ts",
+    "build": "tsup src/*.ts",
     "clean": "pnpm ts ./scripts/clean.ts",
     "format:code": "run-s prettier:format eslint:format",
     "lerna:version:up": "lerna version --yes",
@@ -81,6 +82,7 @@
     "sort-package-json": "1.57.0",
     "ts-jest": "28.0.3",
     "ts-node": "10.8.0",
+    "tsup": "^6.0.1",
     "typescript": "4.7.2"
   },
   "engines": {

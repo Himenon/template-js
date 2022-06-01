@@ -67,9 +67,16 @@
     "pre-commit": "pnpm lint-staged"
   },
   "lint-staged": {
-    "*.{js,jsx,json,yml,yaml,html,md}": ["prettier --write"],
-    "*.{ts,tsx}": ["eslint --fix", "prettier --write"],
-    "package.json": ["sort-package-json"]
+    "*.{js,jsx,json,yml,yaml,html,md}": [
+      "prettier --write"
+    ],
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "package.json": [
+      "sort-package-json"
+    ]
   },
   "devDependencies": {
     "@commitlint/cli": "17.0.2",
@@ -106,5 +113,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "template-js-import-check": "link:/Users/kousei_himeno/CodeSpaces/Himenon/template-js-import-check"
   }
 }

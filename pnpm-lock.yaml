@@ -25,10 +25,14 @@ specifiers:
   rimraf: 3.0.2
   simple-git-hooks: ^2.8.0
   sort-package-json: 1.57.0
+  template-js-import-check: link:/Users/kousei_himeno/CodeSpaces/Himenon/template-js-import-check
   ts-node: 10.8.0
   tsup: ^6.0.1
   typescript: 4.7.2
   vitest: ^0.13.1
+
+dependencies:
+  template-js-import-check: link:../template-js-import-check
 
 devDependencies:
   '@commitlint/cli': 17.0.2_@swc+core@1.2.196

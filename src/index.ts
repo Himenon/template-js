@@ -10,3 +10,5 @@ export const hello = (name: string): string => {
 };
 
 console.log(hello("Your name"));
+
+export default hello;

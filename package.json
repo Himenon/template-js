@@ -3,6 +3,20 @@
   "version": "1.0.5",
   "type": "module",
   "description": "node library template",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "node": "./dist/index.cjs",
+      "default": "./dist/index.js"
+    },
+    "./sub": {
+      "import": "./dist/sub.js",
+      "require": "./dist/sub.cjs",
+      "node": "./dist/sub.cjs",
+      "default": "./dist/sub.js"
+    }
+  },
   "keywords": [
     "template",
     "proxy directory",

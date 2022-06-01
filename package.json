@@ -37,11 +37,11 @@
     "url": "https://github.com/Himenon"
   },
   "sideEffects": false,
-  "main": "./lib/$cjs/index.js",
-  "module": "./lib/$esm/index.js",
-  "types": "./lib/$types/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "directories": {
-    "lib": "lib"
+    "dist": "dist"
   },
   "files": [
     "dist",
